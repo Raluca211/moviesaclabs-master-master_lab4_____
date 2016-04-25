@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Styles/lab4.css" rel="stylesheet" />
+</head>
+<body ng-app="Start" ng-controller="body">
+
+    <h1>ToDo list:</h1>
+
+
+   
+    <form ng-submit="submit()">
+        <div style="text-align:center;">
+            <input ng-model="InputList" id="input1" type="text" placeholder="enter item..." />
+
+            <button ng-click="addTodo()" type="button" id="b1">Add!</button>
+
+        </div>
+
+        <!--<ul style="margin-left:200px;">
+            <li ng-repeat="t in todos">
+                ///tttt
+                <input type="checkbox">Completed<br /><button type="button" id="b2" ng-click="remove($index)">Remove!</button>
+            </li>
+        </ul>-->
+
+        <table width="10">
+
+            <tr>
+                <th>To Do</th>
+                <th>Completed</th>
+                <th>Remove</th>
+            </tr>
+            <tr ng-repeat="elem in List">
+                <td>{{elem.name}}, {{elem.comp}}</td>
+                <td><input ng-model="elem.comp" type="checkbox" id="check"></td>
+                <td><img ng-click="remove($index)" src="http://www.clipartbest.com/cliparts/eTM/dba/eTMdbaEGc.jpeg"  width="25" height="20"/></td>
+           
+            </tr>
+       </table>
+       
+
+
+
+    </form>
+  
+
+
+
+    <br />
+    <h4 style="margin-left:50px;">Total items: {{List.length}}</h4>
+    <br />
+    <button ng-click="all()" type="button" id="b3" style="margin-left:50px;">All</button>
+    
+    
+    <button ng-click="completed()" type="button" id="b4">Completed</button>
+    
+    <button type="button" id="b5">Active</button>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="Scripts/lab4.js"></script>
+</body>
+</html>
