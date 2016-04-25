@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Styles/lab5.css" rel="stylesheet" />
+</head>
+<body ng-app="Start" ng-controller="body">
+
+    <h1>Actors list:</h1>
+
+
+
+   <form>
+       <div style="text-align:center;">
+         
+            <input ng-model="Name" id="input1" type="text" placeholder="enter actor name..." />
+           <input ng-model="Date" id="input1" type="text" placeholder="enter actor date of birth..." />
+           <input ng-model="Rev" id="input1" type="text" placeholder="enter actor revenue..." />
+         
+
+            <button ng-click="add()" type="button" id="b1">Add!</button>
+
+        </div>
+
+        <!--<ul style="margin-left:200px;">
+            <li ng-repeat="t in todos">
+                ///tttt
+                <input type="checkbox">Completed<br /><button type="button" id="b2" ng-click="remove($index)">Remove!</button>
+            </li>
+        </ul>-->
+
+        <table width="10">
+
+            <tr>
+                <th>Id</th>
+                <th>Actor name</th>
+                <th>Date of birth</th>
+                <th>Revenue</th>
+                <th>Remove</th>
+            </tr>
+            <tr ng-repeat="elem in actorsList">
+                <td>{{elem.Id}}</td>
+                <td>{{elem.Name}}</td>
+                <td>{{elem.DateOfBirth}}</td>
+                <td>{{elem.Revenue}}</td>
+                <td><img ng-click="remove($index)" src="http://www.clipartbest.com/cliparts/eTM/dba/eTMdbaEGc.jpeg" width="25" height="20" /></td>
+
+            </tr>
+        </table>
+
+
+    </form>
+
+    <br />
+    <h4 style="margin-left:50px;">Total items: {{actorsList.length}}</h4>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="Scripts/lab5.js"></script>
+</body>
+</html>
