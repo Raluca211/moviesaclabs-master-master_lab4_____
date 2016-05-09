@@ -25,6 +25,8 @@ app.service("MoviesService", function($http){
 
         });
     };
+
+
 });
 
 app.controller('body', function($scope, MoviesService) {
