@@ -42,6 +42,45 @@ namespace MoviesACLabs.Controllers
             return Ok(actorModel);
         }
 
+
+        // GET: api/Actors/String
+        [Route("~/filteractor/{name}")]
+        [ResponseType(typeof(ActorModel))]
+        public IHttpActionResult GetActor(string name)
+        {
+
+            var result=db.Actors.Where(t =>
+            t.Name.Contains(name))
+             .ToList();
+
+            var res = Mapper.Map<List<ActorModel>>(result);
+
+            return Ok(res);
+
+        }
+
+
+        // GET: api/Actors/float
+        [Route("~/filterrev/{rev}")]
+        [ResponseType(typeof(ActorModel))]
+        public IHttpActionResult GetActor(float rev)
+        {
+
+            var result = db.Actors.Where(t =>
+              t.Revenue>rev)
+             .ToList();
+
+            var res = Mapper.Map<List<ActorModel>>(result);
+
+            return Ok(res);
+
+
+        }
+
+
+
+
+
         // PUT: api/Actors/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutActor(int id, ActorModel actorModel)
@@ -110,6 +149,8 @@ namespace MoviesACLabs.Controllers
 
             return Ok();
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

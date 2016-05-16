@@ -37,6 +37,8 @@ app.controller('body', function($scope, MoviesService) {
     $scope.Date = '';
     $scope.Rev = '';
 
+    $scope.Search = '';
+
     $scope.newActor;
    
     
@@ -85,6 +87,13 @@ app.controller('body', function($scope, MoviesService) {
 
     };
 
+    $scope.search() = function () {
+
+        if ($scope.Search == '') {
+            return;
+        }
+
+    };
 
     $scope.remove = function (index) {
         MoviesService.removeActor(index).then(function () { }, function (response) { console.log(response); });
